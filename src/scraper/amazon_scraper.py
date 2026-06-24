@@ -63,15 +63,28 @@ def scrape_product(listing):
              .strip()
         )
 
-        price_text = (
+        availability = (
              page
-             .locator("span.a-price-whole")
-             .first
+             .locator(".primary-availability-message")
              .inner_text()
-             
+             .strip()
         )
 
-        current_price = int(re.sub(r"\D", "", price_text))
+        if availability == "Currently unavailable.":
+             current_price = None
+             scraper_status = "Price Not Available"
+
+        else:
+             price_text = (
+                  page
+                  .locator("span.a-price-whole")
+                  .first
+                  .inner_text()
+                  )
+             
+             current_price = int(re.sub(r"\D", "", price_text))
+
+             scraper_status = "Success"
 
 
         browser.close()
@@ -80,22 +93,35 @@ def scrape_product(listing):
              "listing_id": listing["listing_id"],
              "product_name": product_name,
              "current_price": current_price,
+             "availability": availability,
              "currency": "INR",
              "scraped_at": datetime.now(),
-             "scraper_status": "Success"
+             "scraper_status": scraper_status
              }
         
         
 
 def main():
+    
     listings = fetch_product_listings()
     # print(listings)
 
-    result = scrape_product(listings[33])
-
-    print(result)
-
-    insert_raw_scrape_data(result)
+    for listing in listings[33:36]:
+        
+        print(f"Now scraping: {listing['retailer_product_name']}")
+        
+        try:
+             result = scrape_product(listing)
+             
+             print(result)
+             
+             insert_raw_scrape_data(result)
+             
+             print(f"Scraped: {result['product_name']}")
+        
+        except Exception as e:
+            print(f"Failed: {listing['retailer_product_name']}") 
+            print(e)
     
 if __name__ == "__main__":
         main()

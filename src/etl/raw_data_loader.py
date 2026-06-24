@@ -23,7 +23,7 @@ def insert_raw_scrape_data(scrape_result):
         scrape_result["listing_id"],
         scrape_result["product_name"],
         scrape_result["current_price"],
-        None,
+        scrape_result["availability"],
         scrape_result["scraper_status"],
         scrape_result["scraped_at"]
     )

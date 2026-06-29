@@ -32,7 +32,8 @@ def fetch_product_listings(store_name):
         JOIN stores s
             ON pl.store_id = s.store_id
         WHERE
-            s.store_name = %s;
+            s.store_name = %s
+            AND pl.listing_status = 'Active';
     """
 
     cursor.execute(query, (store_name,))

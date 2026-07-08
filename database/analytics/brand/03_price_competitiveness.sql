@@ -17,11 +17,15 @@ CREATE OR REPLACE VIEW price_competitiveness AS
 
 SELECT
 
+    cps.brand_id,
+    
     cps.product_id,
 
     cps.product_name,
 
     cps.brand_name,
+
+    cheapest.store_id,
 
     cheapest.store_name AS cheapest_store,
 
@@ -76,10 +80,14 @@ AND cheapest.current_price = lowest.min_price
 
 GROUP BY
 
+    cps.brand_id,
+    
     cps.product_id,
 
     cps.product_name,
 
     cps.brand_name,
+
+    cheapest.store_id,
 
     cheapest.store_name;

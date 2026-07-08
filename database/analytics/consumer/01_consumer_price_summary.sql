@@ -17,6 +17,8 @@ USE intentiq;
 CREATE OR REPLACE VIEW consumer_price_summary AS
 
 SELECT
+    b.brand_id,
+    
     p.product_id,
 
     p.product_name,
@@ -40,6 +42,8 @@ JOIN latest_prices lp
     ON p.product_id = lp.product_id
 
 GROUP BY
+    b.brand_id,
+    
     p.product_id,
 
     p.product_name,

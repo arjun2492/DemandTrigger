@@ -17,8 +17,11 @@ USE intentiq;
 CREATE OR REPLACE VIEW store_price_comparison AS
 
 SELECT
+    b.brand_id,
 
     p.product_id,
+
+    lp.store_id,
 
     p.product_name,
 

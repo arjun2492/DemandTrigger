@@ -19,7 +19,11 @@ SELECT
 
     ph.price_id,
 
+    b.brand_id,
+
     p.product_id,
+
+    ph.store_id,
 
     p.product_name,
 

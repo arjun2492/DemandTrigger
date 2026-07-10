@@ -1,0 +1,44 @@
+{
+  "name": "IntentIQ Enterprise",
+  "dataColors": [
+    "#2563EB",
+    "#1E40AF",
+    "#60A5FA",
+    "#93C5FD",
+    "#16A34A",
+    "#F59E0B",
+    "#DC2626",
+    "#9CA3AF"
+  ],
+  "background": "#F8FAFC",
+  "foreground": "#111827",
+  "tableAccent": "#2563EB",
+  "good": "#16A34A",
+  "neutral": "#2563EB",
+  "bad": "#DC2626",
+  "minimum": "#DBEAFE",
+  "center": "#60A5FA",
+  "maximum": "#1E40AF",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI",
+      "fontSize": 20,
+      "color": "#111827"
+    },
+    "header": {
+      "fontFace": "Segoe UI",
+      "fontSize": 14,
+      "color": "#111827"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 11,
+      "color": "#374151"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28,
+      "color": "#111827"
+    }
+  }
+}
